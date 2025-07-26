@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Watch this video!</title>
+</head>
+<body>
+  <video src="this.mp4" autoplay controls style="max-width:100%; height:auto;"></video>
+</body>
+</html>
