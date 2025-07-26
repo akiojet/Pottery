@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>heehee</title>
+  <title>Loading...</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
-  <video src="this.mkv" autoplay controls style="max-width:100%; height:auto;"></video>
+  <video id="prankVideo" src="prank.mp4" autoplay muted playsinline></video>
+
+  <script>
+    const video = document.getElementById('prankVideo');
+
+    async function startVideo() {
+      try {
+        video.muted = false;
+        await video.requestFullscreen?.();
+        await video.play();
+      } catch (err) {
+        console.error("Autoplay failed:", err);
+      }
+    }
+
+    // Wait for first user interaction
+    document.body.addEventListener('click', startVideo, { once: true });
+    document.body.addEventListener('touchstart', startVideo, { once: true });
+  </script>
 </body>
 </html>
